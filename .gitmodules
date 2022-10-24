@@ -1,0 +1,3 @@
+[submodule "minimc"]
+	path = minimc
+	url = git@github.com:dannybpoulsen/minimc.git

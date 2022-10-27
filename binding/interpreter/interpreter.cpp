@@ -11,9 +11,7 @@ void addInterpreterModule(py::module& m){
 
     py::class_<MiniMC::Interpreter::Parser>(submodule,"Parser")
             .def(py::init<MiniMC::Interpreter::StateMap*,MiniMC::CPA::AnalysisTransfer>())
-            .def("__call__",[](MiniMC::Interpreter::Parser& self, const std::string& s){
-                self(s);
-            });
+            .def("__call__",&MiniMC::Interpreter::Parser::operator());
 
     py::class_<MiniMC::Interpreter::StateMap>(submodule,"StateMap")
             .def(py::init<MiniMC::CPA::AnalysisState>());

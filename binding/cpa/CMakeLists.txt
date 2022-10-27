@@ -1,0 +1,1 @@
+add_library (pycpa INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/interface.cpp)

@@ -12,4 +12,4 @@ add_subdirectory(model)
 add_subdirectory(interpreter)
 add_subdirectory(cpa)
 
-target_link_libraries(pyminimc PUBLIC minimclib)
+target_link_libraries(pyminimc PUBLIC minimclib interpreter)

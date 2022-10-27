@@ -1,5 +1,4 @@
 #include <pybind11/pybind11.h>
-#include "support/smt.hpp"
 
 namespace py = pybind11;
 

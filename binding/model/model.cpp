@@ -5,6 +5,7 @@
 #include "model/controller.hpp"
 #include "model/instructions.hpp"
 #include "loaders/loader.hpp"
+#include "model/output.hpp"
 
 
 namespace py = pybind11;
@@ -13,8 +14,13 @@ void addModelModule(py::module& m){
     auto submodule = m.def_submodule("Model");
 
 
-    py::class_<MiniMC::Model::Program>(submodule,"Program")
-            .def(py::init<MiniMC::Model::TypeFactory_ptr&, MiniMC::Model::ConstantFactory_ptr&>());
+    py::class_<MiniMC::Model::Program,std::shared_ptr<MiniMC::Model::Program>>(submodule,"Program")
+            .def(py::init<MiniMC::Model::TypeFactory_ptr&, MiniMC::Model::ConstantFactory_ptr&>())
+            .def("__str__",[](MiniMC::Model::Program& program){
+                std::stringstream ss;
+                MiniMC::Model::writeProgram (ss,program);
+                return ss.str();
+            });
 
     m.def("Controller", [](MiniMC::Loaders::LoadResult& loadresult){
         MiniMC::Model::Controller control(*loadresult.program,loadresult.entrycreator);

@@ -17,7 +17,12 @@ void addCPAModule(py::module& m) {
         return builder;
     });
 
-    py::class_<MiniMC::CPA::AnalysisState>(submodule,"AnalysisState");
+    py::class_<MiniMC::CPA::AnalysisState>(submodule,"AnalysisState")
+            .def("__str__", [](MiniMC::CPA::AnalysisState state){
+                std::stringstream ss;
+                ss << state;
+                return ss.str();
+            });
 
     py::class_<MiniMC::CPA::AnalysisBuilder>(submodule, "AnalysisBuilder")
             .def("makeTransfer", &MiniMC::CPA::AnalysisBuilder::makeTransfer)

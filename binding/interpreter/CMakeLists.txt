@@ -1,1 +1,0 @@
-add_library (pyinterpreter INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/interpreter.cpp)

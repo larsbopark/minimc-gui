@@ -1,1 +1,0 @@
-add_library (pyloaders INTERFACE ${CMAKE_CURRENT_SOURCE_DIR}/loaders.cpp)

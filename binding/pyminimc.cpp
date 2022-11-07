@@ -7,6 +7,7 @@ void addInterpreterModule(py::module& m);
 void addCPAModule(py::module& m);
 void addModelModule(py::module& m);
 void addAlgorithmModule(py::module& m);
+void addVMModule(py::module& m);
 
 PYBIND11_MODULE(minimc, m){
     m.doc() = "MiniMC for Python";
@@ -15,5 +16,6 @@ PYBIND11_MODULE(minimc, m){
     addCPAModule(m);
     addModelModule(m);
     addAlgorithmModule(m);
+    addVMModule(m);
 
 }

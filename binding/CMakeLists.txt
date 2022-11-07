@@ -5,6 +5,7 @@ pybind11_add_module(pyminimc
         pyinterpreter.cpp
         pycpa.cpp
         pyalgorithms.cpp
+        pyvm.cpp
         )
 set_target_properties(pyminimc PROPERTIES OUTPUT_NAME minimc)
 

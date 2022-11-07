@@ -14,13 +14,13 @@ void addLoaderModule(py::module& m){
         MiniMC::Model::ConstantFactory_ptr cfac = std::shared_ptr<MiniMC::Model::ConstantFactory> (new MiniMC::Model::ConstantFactory64 (tfac));
 
         return MiniMC::Loaders::getLoaders ().at(i)->makeLoader(tfac,cfac);
-    } );
+    });
 
     py::class_<MiniMC::Loaders::Loader>(submodule,"Loader")
             .def("loadFromFile", &MiniMC::Loaders::Loader::loadFromFile)
             .def("loadFromString",&MiniMC::Loaders::Loader::loadFromString);
 
-    py::class_<MiniMC::Loaders::LoadResult>(submodule, "LoadResult")
+    py::class_<MiniMC::Loaders::LoadResult>(submodule, "LoadResult", "The result of running a Loader. Containing a MiniMC Program and a entrycreator")
             .def_readwrite("program", &MiniMC::Loaders::LoadResult::program)
             .def_readwrite("entrycreator",&MiniMC::Loaders::LoadResult::entrycreator);
 }
